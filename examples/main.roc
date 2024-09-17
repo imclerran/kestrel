@@ -10,13 +10,15 @@ main : Task {} _
 main =
     list2 = [1, 2, 3, 4, 5]
     list3 = ["a", "b", "c", "d", "e"]
+    list4 = [1.1, 2.2, 3.3, 4.4, 5.5]
 
     strsWithStuff = 
-        oneArity (ApplyLast (FromFour 
-                List.map3 
+        oneArity (ApplyLast (FromFive 
+                List.map4
                 list2 
                 list3 
-                \str1, int, str2 -> "$(str1) + $(Num.toStr int)$(str2)"
+                list4
+                \str1, int, str2, float -> "$(str1) + $(Num.toStr int)$(str2)$(Num.toStr float)"
             )
         )
 
